@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — SOC Student Registration Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+      <span>SOC Academy<small>ADMIN CONSOLE</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">View Site</a>
+      <a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+  </div>
+</header>
+
+<section class="dash-shell">
+  <div class="dash-header">
+    <div>
+      <h1>Registrations Dashboard</h1>
+      <p>Live view of every SOC training registration stored on this device.</p>
+    </div>
+    <button class="btn btn-primary" id="exportBtn"><i class="fa-solid fa-file-arrow-down"></i> Export CSV</button>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card glass">
+      <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+      <div><strong data-count="0" id="statTotal">0</strong><span>Total Registrations</span></div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon"><i class="fa-solid fa-calendar-day"></i></div>
+      <div><strong data-count="0" id="statToday">0</strong><span>Today's Registrations</span></div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+      <div><strong data-count="0" id="statBatches">0</strong><span>Batch Count</span></div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon"><i class="fa-solid fa-building-columns"></i></div>
+      <div><strong data-count="0" id="statDepts">0</strong><span>Department Count</span></div>
+    </div>
+  </div>
+
+  <div class="toolbar glass">
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Search by name, ID, email...">
+    </div>
+    <div class="filter-group">
+      <select id="filterBatch"><option value="">All Batches</option></select>
+      <select id="filterDept"><option value="">All Departments</option></select>
+      <select id="filterDomain"><option value="">All Domains</option></select>
+    </div>
+  </div>
+
+  <div class="glass table-panel">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Batch</th><th>Department</th><th>Email</th><th>Phone</th><th>Interest</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <i class="fa-solid fa-inbox"></i>
+      <p>No registrations match your search yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- View details modal -->
+<div class="modal-overlay" id="viewModal">
+  <div class="glass modal-box">
+    <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+    <h2>Student Details</h2>
+    <p style="color:var(--text-low); font-size:.82rem;">Full registration record</p>
+    <div class="detail-grid" id="detailGrid"></div>
+  </div>
+</div>
+
+<!-- Edit modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="glass modal-box">
+    <button class="modal-close" data-close><i class="fa-solid fa-xmark"></i></button>
+    <h2>Edit Registration</h2>
+    <form id="editForm">
+      <input type="hidden" id="editId">
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="editFullName">
+      </div>
+      <div class="field">
+        <label>Batch Number</label>
+        <input type="text" id="editBatch">
+      </div>
+      <div class="field">
+        <label>Department</label>
+        <input type="text" id="editDept">
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" id="editEmail">
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="tel" id="editPhone">
+      </div>
+      <div class="field">
+        <label>Domain of Interest</label>
+        <select id="editDomain">
+          <option>SOC Analyst</option>
+          <option>Penetration Tester</option>
+          <option>Digital Forensics</option>
+          <option>Incident Response</option>
+          <option>Malware Analysis</option>
+          <option>Threat Hunting</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-close>Cancel</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirm modal -->
+<div class="modal-overlay" id="deleteModal">
+  <div class="glass modal-box" style="max-width:420px; text-align:center;">
+    <div style="width:56px;height:56px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:rgba(255,92,122,0.12);color:var(--signal-red);font-size:1.4rem;">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <h2>Delete this registration?</h2>
+    <p style="color:var(--text-mid); font-size:.88rem;">This action can't be undone. The student record will be permanently removed from storage.</p>
+    <div class="modal-actions" style="justify-content:center;">
+      <button class="btn btn-ghost" data-close>Cancel</button>
+      <button class="btn btn-primary" id="confirmDeleteBtn" style="background:linear-gradient(135deg,#ff5c7a,#ff8b8b); color:#2a0710;">Delete Permanently</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

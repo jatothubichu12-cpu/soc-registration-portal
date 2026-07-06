@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — SOC Student Registration Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+      <span>SOC Academy<small>SECURITY OPERATIONS TRAINING</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="register.html" class="active">Register</a>
+      <a href="index.html#about">About SOC</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="admin.html">Admin Login</a>
+      <a href="register.html" class="nav-cta">Register Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <span class="breadcrumb"><a href="index.html">Home</a> / Register</span>
+  <h1>Student Registration</h1>
+  <p style="max-width:520px;margin:0 auto;color:var(--text-mid);">Fill in your details below to secure a seat in the next SOC training batch.</p>
+</section>
+
+<section class="form-shell">
+  <div class="glass form-wrap" id="formWrap">
+    <form id="regForm" novalidate>
+
+      <div class="form-section-title"><i class="fa-solid fa-id-card"></i> Student identity</div>
+      <div class="field-grid">
+        <div class="field" data-field="fullName">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" name="fullName" placeholder="Aarav Sharma" required>
+          <small class="error">Please enter your full name.</small>
+        </div>
+        <div class="field" data-field="studentId">
+          <label>Student ID <span class="req">*</span></label>
+          <input type="text" name="studentId" placeholder="e.g. STU10234" required>
+          <small class="error">Student ID is required.</small>
+        </div>
+        <div class="field" data-field="rollNumber">
+          <label>Roll Number <span class="req">*</span></label>
+          <input type="text" name="rollNumber" placeholder="e.g. 21CS045" required>
+          <small class="error">Roll number is required.</small>
+        </div>
+        <div class="field" data-field="batchNumber">
+          <label>Batch Number <span class="req">*</span></label>
+          <input type="text" name="batchNumber" placeholder="e.g. SOC-2026-B04" required>
+          <small class="error">Batch number is required.</small>
+        </div>
+      </div>
+
+      <div class="form-section-title"><i class="fa-solid fa-graduation-cap"></i> Academic details</div>
+      <div class="field-grid">
+        <div class="field full" data-field="collegeName">
+          <label>College Name <span class="req">*</span></label>
+          <input type="text" name="collegeName" placeholder="Your institution name" required>
+          <small class="error">College name is required.</small>
+        </div>
+        <div class="field" data-field="department">
+          <label>Department <span class="req">*</span></label>
+          <input type="text" name="department" placeholder="e.g. Computer Science" required>
+          <small class="error">Department is required.</small>
+        </div>
+        <div class="field" data-field="year">
+          <label>Year <span class="req">*</span></label>
+          <select name="year" required>
+            <option value="">Select year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+            <option>Postgraduate</option>
+          </select>
+          <small class="error">Please select your year.</small>
+        </div>
+      </div>
+
+      <div class="form-section-title"><i class="fa-solid fa-address-book"></i> Contact information</div>
+      <div class="field-grid">
+        <div class="field" data-field="email">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+          <small class="error">Please enter a valid email address.</small>
+        </div>
+        <div class="field" data-field="phone">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="10-digit mobile number" required>
+          <small class="error">Please enter a valid 10-digit phone number.</small>
+        </div>
+        <div class="field" data-field="dob">
+          <label>Date of Birth <span class="req">*</span></label>
+          <input type="date" name="dob" required>
+          <small class="error">Date of birth is required.</small>
+        </div>
+        <div class="field" data-field="gender">
+          <label>Gender <span class="req">*</span></label>
+          <select name="gender" required>
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Non-binary</option>
+            <option>Prefer not to say</option>
+          </select>
+          <small class="error">Please select a gender option.</small>
+        </div>
+        <div class="field" data-field="city">
+          <label>City <span class="req">*</span></label>
+          <input type="text" name="city" placeholder="e.g. Hyderabad" required>
+          <small class="error">City is required.</small>
+        </div>
+        <div class="field" data-field="state">
+          <label>State <span class="req">*</span></label>
+          <input type="text" name="state" placeholder="e.g. Telangana" required>
+          <small class="error">State is required.</small>
+        </div>
+      </div>
+
+      <div class="form-section-title"><i class="fa-solid fa-shield-halved"></i> Training preferences</div>
+      <div class="field-grid">
+        <div class="field" data-field="domain">
+          <label>Cybersecurity Domain of Interest <span class="req">*</span></label>
+          <select name="domain" required>
+            <option value="">Select a domain</option>
+            <option>SOC Analyst</option>
+            <option>Penetration Tester</option>
+            <option>Digital Forensics</option>
+            <option>Incident Response</option>
+            <option>Malware Analysis</option>
+            <option>Threat Hunting</option>
+          </select>
+          <small class="error">Please select a domain of interest.</small>
+        </div>
+        <div class="field" data-field="experience">
+          <label>Experience Level <span class="req">*</span></label>
+          <select name="experience" required>
+            <option value="">Select experience level</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+          <small class="error">Please select your experience level.</small>
+        </div>
+        <div class="field full" data-field="programmingSkills">
+          <label>Programming Skills</label>
+          <input type="text" name="programmingSkills" placeholder="e.g. Python, Bash, PowerShell">
+        </div>
+        <div class="field full" data-field="operatingSystems">
+          <label>Operating Systems</label>
+          <input type="text" name="operatingSystems" placeholder="e.g. Linux, Windows Server, macOS">
+        </div>
+        <div class="field" data-field="github">
+          <label>GitHub Profile</label>
+          <input type="url" name="github" placeholder="https://github.com/username">
+        </div>
+        <div class="field" data-field="linkedin">
+          <label>LinkedIn Profile</label>
+          <input type="url" name="linkedin" placeholder="https://linkedin.com/in/username">
+        </div>
+      </div>
+
+      <div class="form-section-title"><i class="fa-solid fa-comment-dots"></i> Tell us more</div>
+      <div class="field-grid">
+        <div class="field full" data-field="motivation">
+          <label>Why do you want to join SOC? <span class="req">*</span></label>
+          <textarea name="motivation" placeholder="Share what draws you to security operations..." required></textarea>
+          <small class="error">Please tell us why you'd like to join.</small>
+        </div>
+        <div class="field full" data-field="comments">
+          <label>Additional Comments</label>
+          <textarea name="comments" placeholder="Anything else we should know? (optional)"></textarea>
+        </div>
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent" name="consent" required>
+        <label for="consent">I confirm the information provided is accurate and I consent to it being stored for the purpose of processing my SOC training registration. <span class="req">*</span></label>
+      </div>
+
+      <div class="form-footer">
+        <span class="form-progress" id="formProgress">All fields marked * are required</span>
+        <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Submit Registration</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="glass success-panel" id="successPanel">
+    <div class="icon-big"><i class="fa-solid fa-check"></i></div>
+    <h2>Registration received</h2>
+    <p style="color:var(--text-mid);">Your seat request has been logged in our system. Keep your reference ID for tracking.</p>
+    <div class="ref" id="refId">SOC-0000</div>
+    <div>
+      <a href="index.html" class="btn btn-ghost">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; padding-top:0;">
+      <span>© 2026 SOC Academy — Educational demo portal.</span>
+      <div class="social-row">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

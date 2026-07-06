@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — SOC Student Registration Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .login-shell{
+    min-height: 78vh;
+    display:grid; place-items:center;
+    padding: 60px 24px;
+  }
+  .login-card{
+    width:100%; max-width: 400px;
+    padding: 40px 36px;
+    text-align:center;
+  }
+  .login-card .icon-big{
+    width:60px; height:60px; margin:0 auto 18px;
+    border-radius: 14px; display:grid; place-items:center;
+    background: linear-gradient(135deg, rgba(53,232,255,0.16), rgba(139,123,255,0.16));
+    border:1px solid var(--line-strong); color: var(--signal-cyan); font-size:1.4rem;
+  }
+  .login-card h1{ font-size:1.4rem; }
+  .login-card p.sub{ font-size:.86rem; color:var(--text-low); margin-bottom:28px; }
+  .login-field{ text-align:left; margin-bottom:16px; }
+  .login-field label{ font-size:.82rem; font-weight:600; color:var(--text-hi); display:block; margin-bottom:7px; }
+  .login-field input{
+    width:100%; background: rgba(255,255,255,0.035); border:1px solid var(--line);
+    border-radius: var(--radius-sm); padding: 11px 14px; color: var(--text-hi); font-size:.92rem;
+  }
+  .login-field input:focus{ outline:none; border-color: var(--signal-cyan); box-shadow: 0 0 0 3px rgba(53,232,255,0.12); }
+  .login-error{
+    font-size:.82rem; color: var(--signal-red); text-align:left; margin: -6px 0 14px; display:none;
+  }
+  .login-error.show{ display:block; }
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+      <span>SOC Academy<small>SECURITY OPERATIONS TRAINING</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="register.html">Register</a>
+      <a href="index.html#about">About SOC</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="admin.html" class="active">Admin Login</a>
+    </nav>
+  </div>
+</header>
+
+<section class="login-shell">
+  <div class="glass login-card">
+    <div class="icon-big"><i class="fa-solid fa-user-shield"></i></div>
+    <h1>Admin Access</h1>
+    <p class="sub">Restricted area — SOC training staff only.</p>
+
+    <form id="loginForm" novalidate>
+      <div class="login-field">
+        <label>Username</label>
+        <input type="text" id="username" autocomplete="username" placeholder="Enter username">
+      </div>
+      <div class="login-field">
+        <label>Password</label>
+        <input type="password" id="password" autocomplete="current-password" placeholder="Enter password">
+      </div>
+      <div class="login-error" id="loginError">Invalid username or password.</div>
+      <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+    </form>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

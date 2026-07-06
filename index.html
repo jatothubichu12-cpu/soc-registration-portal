@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOC Student Registration Portal</title>
+<meta name="description" content="Register for Security Operations Center (SOC) training — a student registration portal for educational cybersecurity demonstrations.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="loader"><div class="loader-ring"></div></div>
+
+<!-- ===== Navigation ===== -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+      <span>SOC Academy<small>SECURITY OPERATIONS TRAINING</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="register.html">Register</a>
+      <a href="index.html#about">About SOC</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="admin.html">Admin Login</a>
+      <a href="register.html" class="nav-cta">Register Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Enrollment open · Batch SOC-2026-B04</span>
+      <h1>Cyber Security <span class="accent">SOC</span> Student<br>Registration Portal</h1>
+      <p class="hero-sub">Register your details for Security Operations Center (SOC) training — threat detection, incident response, and digital forensics, taught the way a real ops room runs.</p>
+      <div class="hero-actions">
+        <a href="register.html" class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Register Now</a>
+        <a href="#tracks" class="btn btn-ghost"><i class="fa-solid fa-diagram-project"></i> Explore Tracks</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong data-count="1240">0</strong><span>Students Trained</span></div>
+        <div><strong data-count="6">0</strong><span>Specialist Tracks</span></div>
+        <div><strong data-count="24">0</strong><span>Active Batches</span></div>
+      </div>
+    </div>
+
+    <div class="console glass">
+      <div class="console-bar">
+        <span class="console-dot r"></span><span class="console-dot y"></span><span class="console-dot g"></span>
+        <span class="console-title">live-feed@soc-training-range</span>
+      </div>
+      <div class="console-body" id="socConsole" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Feature / track cards ===== -->
+<section class="section" id="tracks">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Specialist tracks</span>
+      <h2>Six ways into the operations center</h2>
+      <p>Every track mirrors a real seat on a SOC floor, so what you practice is what you'll be asked to do on day one.</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 01</span>
+        <div class="icon"><i class="fa-solid fa-desktop"></i></div>
+        <h3>SOC Analyst</h3>
+        <p>Triage alerts, escalate real incidents, and learn the rhythm of a Tier 1 / Tier 2 analyst rotation.</p>
+      </div>
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 02</span>
+        <div class="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h3>Threat Hunting</h3>
+        <p>Go beyond alerts — build hypotheses and hunt for adversaries already inside the network.</p>
+      </div>
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 03</span>
+        <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Incident Response</h3>
+        <p>Contain, eradicate, and recover from live-fire breach simulations against the clock.</p>
+      </div>
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 04</span>
+        <div class="icon"><i class="fa-solid fa-fingerprint"></i></div>
+        <h3>Digital Forensics</h3>
+        <p>Recover and preserve evidence from disk, memory, and network artifacts under chain-of-custody rules.</p>
+      </div>
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 05</span>
+        <div class="icon"><i class="fa-solid fa-bug"></i></div>
+        <h3>Malware Analysis</h3>
+        <p>Take samples apart in a safe sandbox — static and dynamic analysis, from binary to behavior.</p>
+      </div>
+
+      <div class="feature-card glass">
+        <span class="tag">TRACK 06</span>
+        <div class="icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+        <h3>SIEM Monitoring</h3>
+        <p>Build detections, tune noisy rules, and read a dashboard the way a working analyst does.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== About SOC ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow">About the program</span>
+        <h2>What a Security Operations Center actually does</h2>
+        <p>A SOC is the team that watches, decides, and acts — around the clock — when something in a network looks wrong. This program is built to put you in that seat early, with the tools and pace of a real floor.</p>
+        <ul class="about-list">
+          <li><i class="fa-solid fa-circle-check"></i> Hands-on labs using the same tooling used in production SOCs</li>
+          <li><i class="fa-solid fa-circle-check"></i> Mentorship from working analysts and incident responders</li>
+          <li><i class="fa-solid fa-circle-check"></i> Batch-based cohorts with shared exercises and shift drills</li>
+          <li><i class="fa-solid fa-circle-check"></i> A portfolio of incident write-ups you can show employers</li>
+        </ul>
+      </div>
+      <div class="metric-panel glass">
+        <div class="metric"><strong data-count="98">0</strong><span>% Lab completion rate</span></div>
+        <div class="metric"><strong data-count="12">0</strong><span>Weeks per cohort</span></div>
+        <div class="metric"><strong data-count="40">0</strong><span>Simulated incidents/cohort</span></div>
+        <div class="metric"><strong data-count="6">0</strong><span>Specialist tracks</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer" id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px;">
+          <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+          <span>SOC Academy</span>
+        </div>
+        <p>An educational registration portal demonstrating a modern SOC training program experience. Built for demonstration purposes.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="index.html#about">About SOC</a></li>
+          <li><a href="admin.html">Admin Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tracks</h4>
+        <ul>
+          <li><a href="register.html">SOC Analyst</a></li>
+          <li><a href="register.html">Threat Hunting</a></li>
+          <li><a href="register.html">Incident Response</a></li>
+          <li><a href="register.html">Digital Forensics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i>&nbsp; admissions@socacademy.edu</li>
+          <li><i class="fa-solid fa-phone"></i>&nbsp; +91 40 1234 5678</li>
+          <li><i class="fa-solid fa-location-dot"></i>&nbsp; Hyderabad, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SOC Academy — Educational demo portal. Not an accredited institution.</span>
+      <div class="social-row">
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

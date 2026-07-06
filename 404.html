@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Signal Lost | SOC Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .notfound-shell{ min-height: 86vh; display:grid; place-items:center; padding: 40px 24px; text-align:center; }
+  .notfound-card{ max-width: 480px; padding: 46px 40px; }
+  .notfound-code{
+    font-family: var(--font-mono); font-size: 3.4rem; font-weight:600;
+    background: linear-gradient(100deg, var(--signal-cyan), var(--signal-violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    line-height:1;
+  }
+  .notfound-card p{ color: var(--text-mid); margin: 14px 0 26px; }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span>
+      <span>SOC Academy<small>SECURITY OPERATIONS TRAINING</small></span>
+    </a>
+  </div>
+</header>
+
+<section class="notfound-shell">
+  <div class="glass notfound-card">
+    <span class="eyebrow">Alert: route not found</span>
+    <div class="notfound-code">404</div>
+    <p>This page isn't in our range. It may have been moved, renamed, or never provisioned.</p>
+    <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-house"></i> Return to Home</a>
+  </div>
+</section>
+
+</body>
+</html>
